@@ -4,17 +4,17 @@
  - [講義資料](https://github.com/hkanegae/lecturematerials/blob/master/GWAS_exercise_171221.pdf)　・　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/GWAS_exercise_171221.pdf)
 ### QTL解析 
  - [講義資料](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.html)
-  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)　・　download(https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.Rmd)
-  - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/geno_bc.csv)
-  - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/yield.csv)
+  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)　・　download(https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.Rmd)
+  - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv)
+  - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv)
 ### 解析用データセット
   - [オオムギの多環境試験データ Hayes et al. (1993).](https://wheat.pw.usda.gov/ggpages/SxM/phenotypes.html)からフォーマットを修正
-  - Grain yield (MT/ha) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/yield.csv)
-  - Lodging (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/lodging.csv)
-  - Height (cm) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/height.csv)
-  - Heading date (days after January 1) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/heading.csv)
-  - Grain protein (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/grain.csv)
-  - Alpha amylase (20 Deg units) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/amylase.csv)
-  - Diastatic power (Deg) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/deg.csv)
-  - Malt extract (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/malt.csv)
+  - Grain yield (MT/ha) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/yield.csv)
+  - Lodging (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/lodging.csv)
+  - Height (cm) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/height.csv)
+  - Heading date (days after January 1) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/heading.csv)
+  - Grain protein (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/grain.csv)
+  - Alpha amylase (20 Deg units) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/amylase.csv)
+  - Diastatic power (Deg) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/deg.csv)
+  - Malt extract (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/malt.csv)
 ***
