@@ -4,7 +4,8 @@
  - [講義資料](https://github.com/hkanegae/lecturematerials/blob/master/GWAS_exercise_171221.pdf)　・　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/GWAS_exercise_171221.pdf)
 ### QTL解析 
  - [講義資料](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.html)
-  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)　・　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.Rmd)
+ - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)
+ - スクリプトのダウンロード [Rmd形式download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.Rmd)　・　[R形式download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.R)
   - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv)
   - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv)
 ### 解析用データセット
@@ -15,6 +16,6 @@
   - Heading date (days after January 1) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/heading.csv)
   - Grain protein (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/grain.csv)
   - Alpha amylase (20 Deg units) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/amylase.csv)
-  - Diastatic power (Deg) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/deg.csv)
+  - Diastatic power (Deg) 150サンプルではなく、152サンプルのデータとなっていたため中止
   - Malt extract (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/malt.csv)
 ***
