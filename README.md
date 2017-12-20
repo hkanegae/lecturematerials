@@ -2,8 +2,8 @@
 - セミナーなどの資料をこちらから公開しています
 
 ### 2017専門実習（QTL解析、GWAS) 2017.12.21 
-- イネの種子形のGWASと原因遺伝子　[講義資料](https://github.com/ut-biomet/lecturematerials/blob/master/GWAS_exercise_171221.pdf)
-- QTL解析 [講義資料](https://github.com/ut-biomet/lecturematerials/blob/master/rqtl.html)
+- イネの種子形のGWASと原因遺伝子　[講義資料](https://github.com/hkanegae/lecturematerials/blob/master/GWAS_exercise_171221.pdf)
+- QTL解析 [講義資料](https://github.com/hkanegae/lecturematerials/blob/master/rqtl.html)
  - QTL解析用のスクリプトおよびデータ
 - 解析用データセット
 
