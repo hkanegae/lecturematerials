@@ -4,7 +4,7 @@
  - [講義資料](https://github.com/hkanegae/lecturematerials/blob/master/GWAS_exercise_171221.pdf)　・　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/GWAS_exercise_171221.pdf)
 ### QTL解析 
  - [講義資料](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.html)
-  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)　・　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.Rmd)
+  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)　・　download(https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.Rmd)
   - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/geno_bc.csv)
   - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/yield.csv)
 ### 解析用データセット
