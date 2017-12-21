@@ -9,6 +9,7 @@
   - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv)
   - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv)
 ### 解析用データセット
+  - [**F**requently **A**sked **Q**uestions](https://github.com/hkanegae/lecturematerials/blob/master/FAQ.md) 
   - [オオムギの多環境試験データ Hayes et al. (1993).](https://wheat.pw.usda.gov/ggpages/SxM/phenotypes.html)からフォーマットを修正
   - Grain yield (MT/ha) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/yield.csv)
   - Lodging (%) [download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/data/lodging.csv)
