@@ -6,8 +6,9 @@
  - [講義資料](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl.html)
  - QTL解析用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial171221/rqtl.Rmd)
  - スクリプトのダウンロード [Rmd形式download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.Rmd)　・　[R形式download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/rqtl.R)
-  - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv)
-  - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv)
+ - QTL解析用の遺伝子型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv)
+ - QTL解析用の表現型データ　[download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv)   
+ - (参考)  [MapChartの使い方](https://github.com/hkanegae/lecturematerials/blob/master/MapChart.pdf) :MapChartはQTLの情報を連鎖地図に書き込みたいときに使えます。
 ### 解析用データセット
   - [**F**requently **A**sked **Q**uestions](https://github.com/hkanegae/lecturematerials/blob/master/FAQ.md) 
   - [オオムギの多環境試験データ Hayes et al. (1993).](https://wheat.pw.usda.gov/ggpages/SxM/phenotypes.html)からフォーマットを修正
