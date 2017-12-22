@@ -24,4 +24,8 @@
 > temp <- summary(outcim.hk, perms = opermcim.hk, threshold = 3)  # output the list of  QTL lod>=3  
 > print(temp)  
 
-
+#### Q5. Barleyのデータベースはありますか？ 
+ - A5. いくつかのデータベースを利用できます。  
+ >[GrainGenes](https://wheat.pw.usda.gov/GG3/)  
+ 
+ >[Gramene](http://www.gramene.org)
