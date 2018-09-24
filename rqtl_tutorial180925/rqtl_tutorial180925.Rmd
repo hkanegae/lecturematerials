@@ -1,0 +1,256 @@
+---
+title: "QTL Analysis"
+author: "Hiromi Kajiya-Kanegae"
+date: "2018/09/24"
+---
+
+### Test data
+### genotype file : https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/geno_bc.csv
+### phenotype file : https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial171221/yield.csv   
+
+```{r}
+## instal qtl package
+# install.packages("qtl")
+
+## Loading rqtl package
+require(qtl) # R package for QTL mapping
+date<-Sys.Date()
+date
+
+sessionInfo()
+
+## Read data for a QTL experiment
+# R/qtl sample data files : https://rqtl.org/sampledata/
+# read data
+cross <- read.cross(format = "csvs", genfile = "data/geno_bc.csv", phefile="data/yield.csv")
+
+## Jitter marker positions in a genetic map
+# Marker positions may be moved apart slightly with the function "jittermap"
+cross <- jittermap(cross)
+
+## plot genetic map
+# Plot genetic map of marker locations for all chromosomes.
+
+plotMap(cross)
+
+## Plot grid of missing genotypes
+# Plot a grid showing which genotypes are missing.
+plotMissing(cross)
+
+## Plot a phenotype distribution
+# Plots a histogram or barplot of the data for a phenotype from an experimental cross.
+# pheno.col:The phenotype column to plot: a numeric index, or the phenotype name as a character string.
+plotPheno(cross, pheno.col=2)
+
+pdf(paste0("cross_summary_",date,".pdf")) # set the name of pdf file
+plotMap(cross)
+plotMissing(cross)
+for(i in 2:nphe(cross)) {
+    plotPheno(cross, pheno.col = i)
+}
+dev.off()  # should close the file at the end
+## Before doing QTL analyses, some intermediate calculations need to be performed.
+```
+
+
+```{r}
+## Calculate conditional genotype probabilities
+# The function calc.genoprob calculates conditional genotype probabilities given the multipoint marker data.
+# step Maximum distance (in cM) between positions at which the genotype probabilities are calculated, though for step = 0, probabilities are calculated only at the marker locations.
+# In this tutorial, step Maximum distance (in cM) between positions is set as 2cM.
+
+interval <- 2 
+
+cross<-calc.genoprob(cross, step = interval)
+
+# # Simulate genotypes given observed marker data
+# sim.geno simulates sequences of genotypes from their joint distribution, given the observed marker data.
+# "n.draws" indicates the number of simulation replicates to perform.
+cross <- sim.geno(cross, step = interval, n.draws = 1000)
+
+## simple interval mapping、SIM
+# select phenotype
+
+pheno.id <- 16 
+
+# EM algorithm (Lander and Botstein 1989)
+out.em <- scanone(cross, pheno.col = pheno.id + 1, method = "em")
+plot(out.em)
+
+# Haley-Knott regression (Haley and Knott 1992)
+out.hk <- scanone(cross, pheno.col = pheno.id + 1, method = "hk")
+plot(out.hk)
+
+#  multiple imputation method of Sen and Churchill (2001)
+out.imp <- scanone(cross, pheno.col = pheno.id + 1, method = "imp")
+plot(out.imp)
+
+summary(out.em)
+summary(out.em, threshold=3)
+summary(out.hk, threshold=3)
+summary(out.imp, threshold=3)
+
+pdf(paste0("scanone_",date,".pdf"))
+par(mfrow = c(3,1)) 
+plot(out.em, main = "EM-algorithm")
+plot(out.hk, main = "Haley and Knott regression")
+plot(out.imp, main = "Imputation method")
+dev.off()
+
+# The function scanone may also be used to perform a permutation test to get a genome-wide LOD significance threshold. For Haley-Knott regression, this can be quite fast.
+operm.hk <- scanone(cross, method="hk", n.perm=1000)
+summary(operm.hk, alpha=0.05)
+summary(out.hk, perms=operm.hk, alpha=0.05, pvalues=TRUE)
+
+# # composite interval mapping、CIM
+# n.marcovar : the number of marker covariates to use.
+# window : Window size, in cM.
+# method : Indicates whether to use the EM algorithm, imputation, Haley-Knott regression, or the extended Haley-Knott method.
+
+## "Haley and Knott regression"
+n.covar <- 7 # n.marcovar
+window.size <- 5  # window
+
+#  cim function returns the scan results as a data.frame with three columns: chromosome, position, LOD score. Attributes indicate the names and positions of the chosen marker covariates.
+
+outcim.hk <- cim(cross, pheno.col = pheno.id + 1, method = "hk", n.marcovar = n.covar, window = window.size)
+
+# If n.perm > 0, the function results the results of a permutation test: a vector giving the genome-wide maximum LOD score in each of the permutations.
+
+opermcim.hk <- cim(cross, pheno.col = pheno.id + 1, method = "hk", n.perm = 1000)
+summary(opermcim.hk, alpha = 0.05) 
+
+# Plot LOD curves
+plot(outcim.hk, main = "Composite Interval Mapping")
+
+# Indicate marker covariates from composite interval mapping
+add.cim.covar(outcim.hk, col = "green")
+# a genome-wide significance threshold (α = 0.05) LOD score
+abline(h = summary(opermcim.hk, alpha = 0.05),col = "red")
+
+summary(outcim.hk, perms = opermcim.hk, alpha = 0.05) 
+
+##  Specify chromosome numbers and positions
+temp <- summary(outcim.hk, perms = opermcim.hk, alpha = 0.05) 
+print(temp)
+
+## makeqtl Make a qtl object
+# This function takes a cross object and specified chromosome numbers and positions and pulls out the genotype probabilities or imputed genotypes at the nearest pseudomarkers, for later use by the function fitqtl.
+qtl <- makeqtl(cross, chr = temp$chr, pos = temp$pos, what = "prob")
+qtl
+
+# Plot the locations of the QTL against a genetic map
+plot(qtl)
+
+## fitting a defined multiple-QTL model
+# An object of class formula indicating the model to be fitted. (It can also be the character string representation of a formula.) QTLs are referred to as Q1, Q2, etc. 
+
+createqtl<- paste("Q", 1:nrow(temp), sep="")
+formula<-as.formula(paste("y ~ ", paste(createqtl, collapse= "+")))
+
+# show formula
+formula
+
+# If you use the test deta ,formula is 'y ~ Q1 + Q2 + Q3'
+
+out.fq <- fitqtl(cross, qtl = qtl, get.ests = T, method = "hk", pheno.col = pheno.id + 1)
+summary(out.fq)
+ 
+## Refine the positions of QTL
+# refineqtl allows us to get improved estimates of thelocations of the QTL.
+
+rqtl<-refineqtl(cross, pheno.col=pheno.id + 1, qtl=qtl,formula=formula, method="hk", model="normal",keeplodprofile=TRUE)
+
+# The output is a modified QTL object, with loci in new positions. 
+summary(rqtl)
+plotLodProfile(rqtl)
+
+# Let us use fitqtl to assess the improvement in fit. 
+out.fq2 <- fitqtl(cross, qtl = rqtl, get.ests = T, method = "hk", pheno.col = pheno.id + 1)
+
+# summary 
+summary(out.fq2)
+
+# %var = percent of the phenotype variance explained by the QTL. 
+# est = additive or dominance effect 
+# t = est/SE
+
+# plot qtl
+for (i in 1:length(rqtl$chr)){
+plot(outcim.hk, main = paste0(phenames(cross)[pheno.id + 1]," Composite Interval Mapping chr",rqtl$chr[i],sep=""),chr=rqtl$chr[i])
+abline(h = summary(opermcim.hk, alpha = 0.05),col = "red")
+abline(h = 3,col = "gray")
+}
+
+# Find marker closest to a specified position
+marker<-data.frame(rqtl$chr,rep(NA,length(rqtl$chr)))
+colnames(marker)=c("chr","marker")
+
+for (i in 1:length(rqtl$chr)){
+marker[i,2]<-find.marker(cross,chr=rqtl$chr[i],pos=rqtl$pos[i])
+}
+print(marker)
+
+## 1.5-LOD support interval
+# Calculate a LOD support interval for a particular chromosome
+
+for ( i in rqtl$chr) {
+lod_table<-lodint(outcim.hk,chr=i,expandtomarkers=TRUE)
+print(lod_table)
+}
+
+# Plot phenotypes versus marker genotypes
+for (i in 1:length(rqtl$chr)){
+plotPXG(cross,marker=marker[i,2],pheno.col=pheno.id + 1)
+}
+
+# Plots the phenotype data against the genotypes at the specified marker. If infer=TRUE, the genotypes of individuals that were not typed is inferred based the genotypes at linked markers via a single imputation from sim.geno; these points are plotted in red. For each genotype, the phenotypic mean is plotted, with error bars at ± 1 SE.
+
+# Plot phenotype means against genotypes at one or two markers
+
+for (k in 1:length(rqtl$chr)){
+effectplot(cross,mname1=marker[k,2],pheno.col=pheno.id + 1)
+}
+
+# addint
+# The function addint is used to test, one at a time, all possible pairwise interactions between QTL that are not already included in a model.
+
+addint(cross, qtl=rqtl, formula=formula)
+
+# addqtl
+### We may use the addqtl function to scan for an additional QTL, to be added to the model. By default, the new QTL is strictly additive.
+
+out.aq <- addqtl(cross, qtl=rqtl, formula=formula)
+max(out.aq)
+
+### plot the results with plot.scanone
+ plot(out.aq)
+ 
+# addpair
+### The function addpair is similar to addqtl, but performs a two-dimensional scan to seek a pair of QTL to add. By default, addpair performs a two-dimensional scan analogous to that of scantwo: for each pair of positions for the two putative QTL, we fit both an additive model and a model including an interaction between the two QTL.
+ 
+ out.ap <- addpair(cross, qtl=rqtl, chr=1, formula=y~Q2+Q3*Q4, verbose=FALSE)
+ summary(out.ap)
+ plot(out.ap, lower="cond-int", upper="cond-add")
+```
+
+## scan two
+```{r}
+out2.hk <- scantwo(cross, method="hk",incl.markers=FALSE)
+
+# One can also use method="em" or method="imp", but they are even more time consuming.
+
+#  the thresholds (6.0, 4.7, Inf, 4.7, 2.6) for the full, conditional-interactive, interaction, additive, and conditional-additive LOD scores, respectively
+
+summary(out2.hk, thresholds=c(6.0, 4.7, Inf, 4.7, 2.6))
+
+# The function max.scantwo returns the two-locus positions with the maximum LOD score for the full and additive models.
+
+max(out2.hk)
+
+# perform permutation tests in order to obtain genome-wide LOD significance thresholds.
+
+operm2.hk <- scantwo(cross, method="hk", n.perm=100)
+summary(operm2.hk)
+plot(out2.hk)
+```
