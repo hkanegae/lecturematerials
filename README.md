@@ -1,3 +1,9 @@
+## QTL Analysis 2018.09.25
+- [document](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl_tutorial180925/rqtl_tutorial180925.html)
+- [Rmd script](https://github.com/hkanegae/lecturematerials/blob/master/rqtl_tutorial180925/rqtl_tutorial180925.Rmd)
+
+***
+
 ## 2017専門実習（QTL解析、GWAS) 2017.12.21 
 #### 　　2017専門実習（連鎖解析、QTL解析、GWAS)については[iwata-wiki](https://sites.google.com/a/ut-biomet.org/iwata-wiki/xue-sheng-shi-xi2017-lian-suo-jie-xi-qtl-jie-xi-gwas)を参照してください　
 ### イネの種子形のGWASと原因遺伝子　
