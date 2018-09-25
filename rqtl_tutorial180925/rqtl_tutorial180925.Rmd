@@ -22,7 +22,7 @@ sessionInfo()
 ## Read data for a QTL experiment
 # R/qtl sample data files : https://rqtl.org/sampledata/
 # read data
-cross <- read.cross(format = "csvs", genfile = "data/geno_bc.csv", phefile="data/yield.csv")
+cross <- read.cross(format = "csvs", genfile = "geno_bc.csv", phefile="yield.csv")
 
 ## Jitter marker positions in a genetic map
 # Marker positions may be moved apart slightly with the function "jittermap"
