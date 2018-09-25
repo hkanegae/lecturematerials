@@ -2,7 +2,7 @@
 ### rqtl tutorial
 - [document](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl_tutorial180925/rqtl_tutorial180925.html)  -output of rqtl script
 - [Rmd script](https://github.com/hkanegae/lecturematerials/blob/master/rqtl_tutorial180925/rqtl_tutorial180925.Rmd) 
-- [supplement file](https://github.com/hkanegae/lecturematerials/blob/master/rqtl_tutorial180925/rqtl_tutorial180925.pdf) -phenotypic variation, Convert a cross to RIL
+- [supplement file](https://github.com/hkanegae/lecturematerials/blob/master/rqtl_tutorial180925/rqtl_tutrial180925.pdf) -phenotypic variation, Convert a cross to RIL
 
 ### rqtl reference
 - [rqtl manual](http://www.rqtl.org/manual/qtl-manual.pdf)
