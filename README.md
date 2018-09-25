@@ -1,6 +1,8 @@
 ## QTL Analysis 2018.09.25
 - [document](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/rqtl_tutorial180925/rqtl_tutorial180925.html)
 - [Rmd script](https://github.com/hkanegae/lecturematerials/blob/master/rqtl_tutorial180925/rqtl_tutorial180925.Rmd)
+- [rqtl manual](http://www.rqtl.org/manual/qtl-manual.pdf)
+- [rqtl data format](http://www.rqtl.org/sampledata/)
 
 ***
 
