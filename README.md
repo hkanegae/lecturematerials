@@ -1,10 +1,12 @@
-## [2018専門実習（GWAS) 2019.01.10](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/tutorial190110.md)  
-- Rの使い方・GWASについて解説しています　　資料は[こちら](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/tutorial190110.md)から
+## [2018専門実習（GWAS) 2019.01.10](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/tutorial190110.md)    
+- Rの使い方・GWASについて解説しています　  
+資料は[こちら](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/tutorial190110.md)から  
 
 ***
 
-## [QTL Analysis 2018.09.25](https://github.com/hkanegae/lecturematerials/blob/master/QTL20180925.md)
-- rqtl tutorial [document](https://github.com/hkanegae/lecturematerials/blob/master/QTL20180925.md)
+## [QTL Analysis 2018.09.25](https://github.com/hkanegae/lecturematerials/blob/master/QTL20180925.md)  
+- rqtl tutorial  
+[document](https://github.com/hkanegae/lecturematerials/blob/master/QTL20180925.md)
 
 ***
 
