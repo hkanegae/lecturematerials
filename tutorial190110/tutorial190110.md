@@ -4,7 +4,8 @@
  - [BGLRパッケージのインストール](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/InstallBGLR190110.md)
 ### イネの種子形のGWASと原因遺伝子　
  - GWASの[講義資料](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial190110/190110GWAS.html)
- <img src="https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/gwas_BayesB.jpg" alt="gwas_BayesB" title="gwas_BayesB">
+ <img src="https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/gwas_BayesB.jpg" alt="gwas_BayesB" title="gwas_BayesB">　　
+
  - GWAS用の[スクリプトの表示](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/190110GWAS.R)
  - スクリプトのダウンロード [Rmd形式download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial190110/190110GWAS.Rmd)　・　[R形式　Mac download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial190110/190110GWAS.R)・[R形式　Win download](https://s3-ap-northeast-1.amazonaws.com/hkanegae/lecturematerials/tutorial190110/190110GWAS4win.R)
   - [原因遺伝子とDB利用講義資料](https://github.com/hkanegae/lecturematerials/blob/master/tutorial190110/GWAS_exercise_190110.pdf)　・　[download](https://github.com/hkanegae/lecturematerials/raw/master/tutorial190110/GWAS_exercise_190110.pdf)
